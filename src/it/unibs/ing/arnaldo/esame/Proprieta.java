@@ -115,7 +115,7 @@ public class Proprieta extends Casella {
 			else 
 				giocatore.setPatrimonio(giocatore.getPatrimonio() + rendita());
 		} else if (proprietario != null){ // se è di un altro giocatore
-			if (Main.partita.getTabellone().controllaGruppoCompleto(gruppo, proprietario)) {
+			if (Main.partita.getTabellone().controllaGruppoCompleto(gruppo, proprietario)) { // e questi possiede tutto il gruppo
 				giocatore.setPatrimonio(giocatore.getPatrimonio() - tassa() * moltiplicatore);
 				proprietario.setPatrimonio(proprietario.getPatrimonio() + tassa() * moltiplicatore);
 			} else {
