@@ -13,9 +13,6 @@ public class Stazione extends Casella {
 	public int getId_stazione() {
 		return id_stazione;
 	}
-	public void setId_stazione(int id_stazione) {
-		this.id_stazione = id_stazione;
-	}
 	
 	@Override
 	public void azione(Giocatore giocatore) {

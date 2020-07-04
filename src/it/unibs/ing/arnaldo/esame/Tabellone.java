@@ -69,13 +69,19 @@ public class Tabellone {
 		return caselle;
 	}
 	
+	/**
+	 * Controlla se un certo giocatore possiede tutte le proprietà di un gruppo
+	 * @param gruppo il gruppo di proprietà
+	 * @param giocatore il giocatore
+	 * @return true se il giocatore le possiede tutte, false altrimenti
+	 */
 	public boolean controllaGruppoCompleto(int gruppo, Giocatore giocatore) {
 		boolean completo = true;
 		for (Casella casella : caselle) {
 			if (casella instanceof Proprieta) {
 				if (((Proprieta) casella).getGruppo() == gruppo && !giocatore.equals(((Proprieta) casella).getProprietario())) {
 					completo = false;
-				}
+				} // se anche una sola non la possiede allora non le ha tutte
 			}
 		}
 		return completo;

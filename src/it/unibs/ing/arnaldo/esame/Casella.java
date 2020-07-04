@@ -31,7 +31,7 @@ public class Casella implements Azione {
 	}
 
 	public String getDescr() {
-		// TODO Auto-generated method stub
+		
 		return nome;
 	}
 

@@ -14,11 +14,18 @@ public class Proprieta extends Casella {
 	
 	public Proprieta() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	
-
+	/**
+	 * Costruisce una nuova prprietà
+	 * @param nome il nome 
+	 * @param valoreCasa il valore della casa
+	 * @param valoreAlbergo il valore dell'albergo
+	 * @param gruppo un intero che rappresenta il gruppo di appartenenza
+	 * @param moltiplicatore il fattore di aumento di rendita in caso di possesso dell'intero gruppo
+	 */
 	public Proprieta(String nome, int valoreCasa, int valoreAlbergo, int gruppo, int moltiplicatore) {
 		super(nome);
 		this.valoreCasa = valoreCasa;
@@ -91,8 +98,11 @@ public class Proprieta extends Casella {
 
 	@Override
 	public void azione(Giocatore giocatore) {
+		
 		if (proprietario == null) { // se nessuno ha ancora comprato
+			
 			Utility.puoiAcquistare(this);
+			
 			if (valoreCasa < giocatore.getPatrimonio()) {
 				if (Utility.vuoiAcquistareCasa()) {
 					giocatore.setPatrimonio(giocatore.getPatrimonio() - valoreCasa);
@@ -100,6 +110,7 @@ public class Proprieta extends Casella {
 					casa = true;
 				}
 			} 
+			
 			if (valoreAlbergo < giocatore.getPatrimonio()) {
 				if (Utility.vuoiAcquistareAlbergo()) {
 					giocatore.setPatrimonio(giocatore.getPatrimonio() - valoreAlbergo);
@@ -109,12 +120,16 @@ public class Proprieta extends Casella {
 			} else {
 				Utility.povero();
 			}
-		} else if (proprietario.equals(giocatore)) { // se è del giocatore
+			
+		} else if (proprietario.equals(giocatore)) { // se invece è del giocatore
+			
 			if (Main.partita.getTabellone().controllaGruppoCompleto(gruppo, giocatore)) // e se possiede tutto il gruppo
 				giocatore.setPatrimonio(giocatore.getPatrimonio() + rendita() * moltiplicatore);
 			else 
 				giocatore.setPatrimonio(giocatore.getPatrimonio() + rendita());
-		} else if (proprietario != null){ // se è di un altro giocatore
+			
+		} else if (proprietario != null) { // se è di un altro giocatore
+			
 			if (Main.partita.getTabellone().controllaGruppoCompleto(gruppo, proprietario)) { // e questi possiede tutto il gruppo
 				giocatore.setPatrimonio(giocatore.getPatrimonio() - tassa() * moltiplicatore);
 				proprietario.setPatrimonio(proprietario.getPatrimonio() + tassa() * moltiplicatore);
@@ -136,7 +151,7 @@ public class Proprieta extends Casella {
 
 
 	private int rendita() {
-		// TODO Auto-generated method stub
+	
 		if (casa) return (int) (valoreCasa * RENDITA);
 		return (int) (valoreAlbergo * RENDITA);
 	}
