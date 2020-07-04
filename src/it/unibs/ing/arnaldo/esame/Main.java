@@ -2,8 +2,13 @@ package it.unibs.ing.arnaldo.esame;
 
 public class Main {
 
+	static Partita partita = new Partita();
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		do {
+			partita.nuovaPartita();
+		} while (Utility.altraPartita());
 
 	}
 
