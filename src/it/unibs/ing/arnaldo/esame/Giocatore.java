@@ -4,7 +4,7 @@ import it.unibs.fp.mylib.NumeriCasuali;
 
 public class Giocatore {
 
-	private static final int PATRIMONIO_INIZIALE = 200000;
+	private static final int PATRIMONIO_INIZIALE = 500000;
 	
 	private String nome;
 	private int id;

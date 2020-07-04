@@ -6,7 +6,7 @@ import it.unibs.fp.mylib.InputDati;
 
 public class Utility {
 
-	private static final String POVERO = "\nNon hai abbastanza soldi per poter comprare.";
+	private static final String POVERO = "\nNon hai abbastanza soldi per proseguire gli acquisti.";
 	private static final String VUOI_COMPRARE_UN_ALBERGO = "\nVuoi comprare un albergo? ";
 	private static final String VUOI_COMPRARE_UNA_CASA = "\nVuoi comprare una casa? ";
 	private static final String IL_COSTO_DI_UN_ALBERGO_E = "Il costo di un albergo e': ";
@@ -126,8 +126,9 @@ public class Utility {
 		
 	}
 
-	public static void puoiAcquistare(Proprieta proprieta) {
+	public static void puoiAcquistare(Proprieta proprieta, Giocatore giocatore) {
 		System.out.println(PUOI_COMPRARE);
+		stampaSituazione(giocatore);
 		System.out.println(IL_COSTO_DI_UNA_CASA_E + proprieta.getValoreCasa());
 		System.out.println(IL_COSTO_DI_UN_ALBERGO_E + proprieta.getValoreAlbergo());
 		

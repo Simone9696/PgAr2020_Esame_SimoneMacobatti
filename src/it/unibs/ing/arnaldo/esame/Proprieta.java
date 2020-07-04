@@ -19,7 +19,7 @@ public class Proprieta extends Casella {
 
 	
 	/**
-	 * Costruisce una nuova prprietà
+	 * Costruisce una nuova proprietà
 	 * @param nome il nome 
 	 * @param valoreCasa il valore della casa
 	 * @param valoreAlbergo il valore dell'albergo
@@ -101,7 +101,7 @@ public class Proprieta extends Casella {
 		
 		if (proprietario == null) { // se nessuno ha ancora comprato
 			
-			Utility.puoiAcquistare(this);
+			Utility.puoiAcquistare(this, giocatore);
 			
 			if (valoreCasa < giocatore.getPatrimonio()) {
 				if (Utility.vuoiAcquistareCasa()) {
